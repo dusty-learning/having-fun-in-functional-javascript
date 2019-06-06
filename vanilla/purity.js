@@ -67,6 +67,7 @@ const cartTwo = {
   totalCost: 0
 }
 
+// For now we will keep it pretty basic
 function addToCartFP (state, item, quantity) {
   return {
     items: state.items.concat([{ item, quantity }]),
