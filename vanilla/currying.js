@@ -57,19 +57,24 @@ console.log(double(3)) // => 6
 /**
  * What if we take it a step further, and build a function
  * that automatically turns another into a curried function?
+ *
+ * This curry2 function allows us to take any functions that takes 2 parameters and automatically make it a curried function.
  */
 function curry2 (fn) {
   return function f2 (a, b) {
+    // If no arguments are present then just return the function
     if (!arguments.length) {
       return f2
     }
 
+    // If only 1 argument is given, return a new function expecting the 2nd
     if (arguments.length === 1) {
       return function (_b) {
         return fn(a, _b)
       }
     }
 
+    // If both arguments are provided then just call the function right away
     return fn(a, b)
   }
 }
@@ -93,10 +98,14 @@ console.log('Maths Divide:', data.reduce(maths.divide, 1))
 // Nifty right? We can do this for however many parameters!
 // We can even make one that automatically handles any amount of parameters!
 const curry = (f, ...args) => {
+  // If the functions needed arguments are less than or equal to the amount provided
+  // Then just call the function with the arguments
   if (f.length <= args.length) {
     return f(...args)
   }
 
+  // Otherwise return a new function that is waiting for the rest of the arguments
+  // And recursively return
   return (...rest) => curry(f, ...args, ...rest)
 }
 
