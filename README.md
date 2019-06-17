@@ -10,3 +10,4 @@ This shall be where the demos, examples, etc shall live
   - [Basics](vanilla/basics.js)
   - [Purity](vanilla/purity.js)
   - [Currying](vanilla/currying.js)
+  - [Mapping](vanilla/mapping.js)
