@@ -28,3 +28,5 @@ const tackOnThings = a => b => a + b + ' Things'
 const doAThing = K.compose(tackOnThings('There are '), K.length)
 
 console.log(doAThing('abc')) // => 'There are 3 Things'
+
+// The possibilities are pretty huge when it comes to composing your functionality
